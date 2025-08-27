@@ -1,65 +1,67 @@
-Open Orders Page - Mobile UI  
+
+# Open Orders Page – Mobile UI
+
 I created this Open Orders page based on the web-based UI provided to me. My main goal was to build a clean, intuitive, and fast user interface that works well on mobile screens while keeping the functionality and look of the original design.
 
-1) Core Philosophy & Approach  
-My approach to building this application was guided by three main principles:
+## 1. Core Philosophy & Approach
 
-Mobile-First Responsive Design: I did not just shrink the web UI; I redesigned it for mobile use. Complex elements, like the multi-column table, are changed into clear, easy-to-read Cards. Content that overflows horizontally, such as the market ticker, can now be scrolled. Primary navigation is placed in a standard mobile Drawer for an easy user experience.
+**Mobile-First Responsive Design**
+- Redesigned for mobile use, not just shrunk from web UI.
+- Multi-column tables are replaced with easy-to-read Cards.
+- Horizontally overflowing content (e.g., market ticker) is scrollable.
+- Primary navigation is placed in a standard mobile Drawer.
 
-Clean Architecture: To make sure the app is scalable, maintainable, and testable, I strictly followed the principles of Clean Architecture. The business logic is completely separate from the UI and data sources. This allows me to easily switch the UI from Flutter to another framework or change the data source from a mock API to a real-time WebSocket, with minimal changes to the core business rules.
+**Clean Architecture**
+- The app is scalable, maintainable, and testable.
+- Business logic is separated from UI and data sources.
+- Easily switch UI frameworks or data sources with minimal changes.
 
-Declarative UI with Provider State Management: I chose Provider, a simple but effective state management solution, to manage the app's state. When data changes, such as the list of orders, or when filters are applied, the UI updates and rebuilds only the necessary widgets. This declarative approach results in code that is more predictable and easier to debug.
+**Declarative UI with Provider State Management**
+- Uses Provider for simple, effective state management.
+- UI updates automatically when data or filters change.
+- Code is predictable and easier to debug.
 
-2) Project Structure  
-The project is organized into layers according to Clean Architecture, making it easy to navigate and understand where different pieces of logic are located.
+## 2. Project Structure
 
+```
 lib/
 ├── core/
-│   └── styles.dart           # Reusabletext styles and theme constants.
-│
+│   └── styles.dart                # Reusable text styles and theme constants
 ├── data/
 │   └── repositories/
-│       └── order_repository_impl.dart # Implementation of the repository, fetches data.
-│
+│       └── order_repository_impl.dart  # Repository implementation
 ├── domain/
 │   ├── entities/
-│   │   └── order.dart        # The core Order data model.
+│   │   └── order.dart             # Core Order data model
 │   ├── repositories/
-│   │   └── order_repository.dart # Abstract contract for the data layer.
+│   │   └── order_repository.dart  # Abstract contract for data layer
 │   └── usecases/
-│       └── get_orders.dart   # A single business action.
-│
+│       └── get_orders.dart        # Business action
 ├── presentation/
 │   ├── pages/
-│   │   └── orders_page.dart  # The main screen widget.
+│   │   └── orders_page.dart       # Main screen widget
 │   ├── provider/
-│   │   └── order_provider.dart # Manages the state for the UI.
-│   └── widgets/              # Reusable UI components for the OrdersPage.
+│   │   └── order_provider.dart    # State management for UI
+│   └── widgets/                   # Reusable UI components
 │       ├── app_drawer.dart
 │       ├── filter_bar.dart
 │       ├── market_header.dart
 │       ├── order_card.dart
 │       └── order_list.dart
-│
-└── main.dart                 # The main file of the application
+└── main.dart                      # Main application file
+```
 
-3) Key Features
-Responsive Market Header: A horizontally scrollable header displaying key market indices.
+## 3. Key Features
 
-Comprehensive Filtering:
+- **Responsive Market Header:** Horizontally scrollable header for market indices.
+- **Comprehensive Filtering:**
+	- Filter by Client ID.
+	- Search for specific stocks (UI only).
+	- Manage active ticker and client filters as chips.
+- **Mobile-Optimized Order List:** Orders displayed as clean, scrollable Cards.
 
-Filter by Client ID.
+## 4. Navigation & Actions
 
-Search for specific stocks (UI only).
-
-Display and manage a list of active ticker and client filters as chips.
-
-Mobile-Optimized Order List: Displays each order in a clean, easy-to-read Card format, perfect for vertical scrolling on mobile.
-
-4) Navigation & Actions:
-
-A slide-out Drawer for primary navigation links (Marketwatch, Portfolio, ...).
-
-Prominent "Cancel All" and "Download" buttons for quick access to key actions.
-
-Provider State Management: Efficiently manages fetching, filtering, and displaying the list of orders.
+- Slide-out Drawer for navigation (Marketwatch, Portfolio, etc.).
+- "Cancel All" and "Download" buttons for quick actions.
+- Provider efficiently manages fetching, filtering, and displaying orders.
