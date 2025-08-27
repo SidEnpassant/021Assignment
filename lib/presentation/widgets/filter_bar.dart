@@ -13,41 +13,55 @@ class FilterBar extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(16),
-      color: Colors.white,
+      color: const Color.fromARGB(255, 243, 243, 243),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
               Expanded(
-                child: TextField(
-                  controller: clientController,
-                  decoration: InputDecoration(
-                    hintText: 'Client ID',
-                    suffixIcon: IconButton(
-                      icon: const Icon(Icons.person_add_alt_1_outlined),
-                      onPressed: () {
-                        if (clientController.text.isNotEmpty) {
-                          provider.addClientFilter(clientController.text);
-                        }
-                      },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: TextField(
+                    controller: clientController,
+                    decoration: InputDecoration(
+                      hintText: 'Client ID',
+                      suffixIcon: IconButton(
+                        icon: const Icon(Icons.person_add_alt_1_outlined),
+                        onPressed: () {
+                          if (clientController.text.isNotEmpty) {
+                            provider.addClientFilter(clientController.text);
+                          }
+                        },
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                      ),
+                      fillColor: Colors.transparent,
+                      filled: true,
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Color(0xFFE2E8F0)),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Color(0xFFE2E8F0)),
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(horizontal: 12),
                   ),
                 ),
               ),
               const SizedBox(width: 12),
               Chip(
                 label: const Text('Lalit', style: filterTextStyle),
-                backgroundColor: const Color(0xFFEDF2F7),
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                 onDeleted: () {},
                 deleteIcon: const Icon(Icons.close, size: 16),
               ),
@@ -58,22 +72,32 @@ class FilterBar extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Search for a stock, future, option or index',
-                    prefixIcon: const Icon(
-                      Icons.search,
-                      color: Color(0xFF718096),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search for a stock, future, option or index',
+                      prefixIcon: const Icon(
+                        Icons.search,
+                        color: Color(0xFF718096),
+                      ),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: Color(0xFFE2E8F0)),
+                      ),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                      fillColor: Colors.transparent,
+                      filled: true,
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Color(0xFFE2E8F0)),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: Color(0xFFE2E8F0)),
-                    ),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10),
                   ),
                 ),
               ),
@@ -113,7 +137,7 @@ class FilterBar extends StatelessWidget {
                       color: const Color(0xFF2D3748),
                     ),
                   ),
-                  backgroundColor: const Color(0xFFEDF2F7),
+                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                   onDeleted: () => provider.removeTickerFilter(filter),
                   deleteIcon: const Icon(Icons.close, size: 16),
                 ),
@@ -126,7 +150,7 @@ class FilterBar extends StatelessWidget {
                       color: const Color(0xFF2D3748),
                     ),
                   ),
-                  backgroundColor: const Color(0xFFE2E8F0),
+                  backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                   onDeleted: () => provider.removeClientFilter(filter),
                   deleteIcon: const Icon(Icons.close, size: 16),
                 ),

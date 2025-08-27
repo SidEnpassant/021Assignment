@@ -13,6 +13,7 @@ class OrdersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 243, 243, 243),
       appBar: AppBar(
         leading: Builder(
           builder: (context) => IconButton(
@@ -25,13 +26,11 @@ class OrdersPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 4.0),
             child: ElevatedButton.icon(
-              onPressed: () {
-                // Download logic
-              },
+              onPressed: () {},
               icon: const Icon(Icons.download_outlined),
               label: const Text('Download'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFEDF2F7),
+                backgroundColor: const Color.fromARGB(255, 230, 230, 230),
                 foregroundColor: const Color(0xFF2D3748),
                 elevation: 0,
                 shape: RoundedRectangleBorder(
