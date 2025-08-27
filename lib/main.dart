@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
           OrderProvider(getOrders: GetOrders(OrderRepositoryImpl()))
             ..fetchOrders(),
       child: MaterialApp(
-        title: 'Flutter Orders App',
+        title: 'Orders App',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
